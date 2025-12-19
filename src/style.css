@@ -1,15 +1,17 @@
+/* 落ち物パズルゲーム スタイル */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: black;
+  background-color: #220088;
+  text-align: center;
 }
 
 #canvas {
@@ -19,4 +21,12 @@ body {
   bottom: 0;
   left: 0;
   margin: auto;
+  touch-action: none;
+}
+
+noscript {
+  display: block;
+  color: white;
+  font-size: 24px;
+  padding: 20px;
 }
