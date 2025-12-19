@@ -24,6 +24,18 @@ import {
 } from "./libs";
 import { int, rnd } from "./libs/utils";
 
+// ========== アセットのインポート ==========
+import bgImg from "./assets/image/bg.png";
+import takoImg from "./assets/image/tako.png";
+import wakameImg from "./assets/image/wakame.png";
+import kurageImg from "./assets/image/kurage.png";
+import sakanaImg from "./assets/image/sakana.png";
+import uniImg from "./assets/image/uni.png";
+import ikaImg from "./assets/image/ika.png";
+import titleImg from "./assets/image/title.png";
+import bgmSound from "./assets/sound/bgm.m4a";
+import seSound from "./assets/sound/se.m4a";
+
 // ========== 型定義 ==========
 
 /** ゲームの状態 */
@@ -107,8 +119,8 @@ const RAINBOW: string[] = [
   "#ff00ff",
 ];
 
-/** ブロック画像のファイル名 */
-const BLOCK_IMAGES = ["tako", "wakame", "kurage", "sakana", "uni", "ika"];
+/** ブロック画像のURL配列 */
+const BLOCK_IMAGES = [takoImg, wakameImg, kurageImg, sakanaImg, uniImg, ikaImg];
 
 // ========== グローバル状態 ==========
 
@@ -567,16 +579,16 @@ const procPzl = (ctx: GameContext): number => {
 const setup = (ctx: GameContext): void => {
   clrBlock();
 
-  // 画像の読み込み
-  loadImg(ctx, 0, "/src/assets/image/bg.png");
+  // 画像の読み込み（インポートしたアセットURLを使用）
+  loadImg(ctx, 0, bgImg);
   for (let i = 0; i < 6; i++) {
-    loadImg(ctx, 1 + i, `/src/assets/image/${BLOCK_IMAGES[i]}.png`);
+    loadImg(ctx, 1 + i, BLOCK_IMAGES[i]);
   }
-  loadImg(ctx, 7, "/src/assets/image/title.png");
+  loadImg(ctx, 7, titleImg);
 
-  // サウンドの読み込み
-  loadSound(ctx, 0, "/src/assets/sound/bgm.m4a");
-  loadSound(ctx, 1, "/src/assets/sound/se.m4a");
+  // サウンドの読み込み（インポートしたアセットURLを使用）
+  loadSound(ctx, 0, bgmSound);
+  loadSound(ctx, 1, seSound);
 };
 
 // ========== メインループ ==========
